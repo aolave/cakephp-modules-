@@ -1,0 +1,17 @@
+<div id="background-logo">
+    <div id="fondologin">
+    <?php $label = 'Temporary'; ?>
+    <?php if($msj == 1): ?>
+        <?php echo $this->Utilities->smessages('contrasena'); ?>
+        <script>
+            $("#msj").dialog('open').html("<?php echo __("For your safety, it is time to change your password. To do this, you must first enter your current password and then type a new one") ?>");
+        </script>
+        <?php $label = 'current'; ?>
+    <?php endif; ?>
+    <?php echo $this->Form->create('User'/*, array('url' => array('controller' => 'secures', 'action' => 'recover', $pass))*/);?>
+    	<?php echo $this->Form->input('passwd_tmp',array('label'=> __("$label password") , 'type' => 'password', 'autocomplete' => 'off'));?>
+        <?php echo $this->Form->input('password',array('label'=> __("New password"), 'autocomplete' => 'off'));?>
+        <?php echo $this->Form->input('password2',array('label'=> __("Confirm password"), 'type' => 'password', 'autocomplete' => 'off'));?>
+    <?php echo $this->Form->end(__("Send"));?>
+    </div>
+</div>
